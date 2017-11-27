@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
 
-
+// 引入多个配置文件
 @PropertySources({@PropertySource("classpath:/config/author.properties"),@PropertySource("classpath:/config/tomcat.properties")})
 @SpringBootApplication
 public class SpringConfig {
@@ -30,6 +30,7 @@ public class SpringConfig {
     }
 
     @Bean("run_condition")
+    // 指定当属性存在的时候才引入bean
     @ConditionalOnProperty(name = "runnable.enable", havingValue = "true",matchIfMissing = false)
     public Runnable createOnCondition() {
         System.out.println("===========4===========");

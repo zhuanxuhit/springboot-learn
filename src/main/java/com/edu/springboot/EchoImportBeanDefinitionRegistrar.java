@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+// 没有任何注解，但是为什么能注入呢？此时是因为在 @Import 中引入了，看 @EnableEcho
 public class EchoImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {

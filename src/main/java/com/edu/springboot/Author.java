@@ -3,6 +3,7 @@ package com.edu.springboot;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+// 属性自动注入，此时能做成是因为 @EnableAutoConfiguration 这个注解
 @ConfigurationProperties(prefix = "author")
 @Component
 public class Author {

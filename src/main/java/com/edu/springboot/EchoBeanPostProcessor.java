@@ -5,6 +5,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 
 import java.util.Arrays;
 
+// bean 钩子函数，此时没有任何注解需要在 EchoImportBeanDefinitionRegistrar 中引入
 public class EchoBeanPostProcessor implements BeanPostProcessor {
 
     private String[] packages;

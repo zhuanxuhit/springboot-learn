@@ -17,6 +17,7 @@ public class SpringbootApplication {
 	    // 会自动扫描配置类
         SpringApplication springApplication = new SpringApplication(
                 SpringConfig.class);
+        // 设置当前环境
 //        springApplication.setAdditionalProfiles("dev");
 
 		ConfigurableApplicationContext context =  springApplication.run(args);

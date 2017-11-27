@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+// 自动注入数组
 @ConfigurationProperties(prefix = "mysql")
 @Component
 public class Mysql {
