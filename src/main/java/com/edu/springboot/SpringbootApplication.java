@@ -2,7 +2,10 @@ package com.edu.springboot;
 
 //import com.edu.springboot.event.MyApplicationListener;
 import com.edu.springboot.event.MyApplicationEvent;
+import com.edu.springboot.extend.MyApplicationContextInitializer;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.Arrays;
@@ -19,7 +22,10 @@ public class SpringbootApplication {
 //        springApplication.setAdditionalProfiles("dev");
         // 添加事件监听，另一种通过 @compent 直接交由容器管理
 //        springApplication.addListeners(new MyApplicationListener());
-
+        // 新增refresh回调
+        springApplication.addInitializers(new MyApplicationContextInitializer());
+        //
+//        CommandLineRunner
 		ConfigurableApplicationContext context =  springApplication.run(args);
 		// 发布事件
         context.publishEvent(new MyApplicationEvent(new Object()));
