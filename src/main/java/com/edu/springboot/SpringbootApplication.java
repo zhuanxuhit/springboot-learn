@@ -1,26 +1,29 @@
 package com.edu.springboot;
 
+//import com.edu.springboot.event.MyApplicationListener;
+import com.edu.springboot.event.MyApplicationEvent;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Condition;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.scheduling.annotation.EnableAsync;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class SpringbootApplication {
 
 	public static void main(String[] args) {
+//        DelegatingApplicationListener
+//        EventListenerMethodProcessor
 	    // 会自动扫描配置类
         SpringApplication springApplication = new SpringApplication(
                 SpringConfig.class);
         // 设置当前环境
 //        springApplication.setAdditionalProfiles("dev");
+        // 添加事件监听，另一种通过 @compent 直接交由容器管理
+//        springApplication.addListeners(new MyApplicationListener());
 
 		ConfigurableApplicationContext context =  springApplication.run(args);
+		// 发布事件
+        context.publishEvent(new MyApplicationEvent(new Object()));
+
         // 获取配置
 		System.out.println(context.getEnvironment().getProperty("local.ip"));
         context.getBean(Author.class).show();
@@ -44,6 +47,7 @@ public class SpringbootApplication {
         System.out.println(context.getBean(User.class));
         System.out.println(context.getBean(Role.class));
         System.out.println(context.getBean(Cat.class));
+
         context.close();
     }
 }

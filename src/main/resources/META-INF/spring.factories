@@ -1,1 +1,2 @@
 org.springframework.boot.env.EnvironmentPostProcessor=com.edu.springboot.MyEnvironmentPostProcessor
+context.listener.classes=com.edu.springboot.event.MyApplicationListener2
