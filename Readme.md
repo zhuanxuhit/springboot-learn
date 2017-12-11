@@ -2,3 +2,4 @@
 [Spring Boot @EnableAutoConfiguration 深入分析](https://www.zybuluo.com/zhuanxu/note/961491)
 [spring boot事件监听](https://www.zybuluo.com/zhuanxu/note/965278)
 [spring boot 扩展分析](https://www.zybuluo.com/zhuanxu/note/965663)
+[Spring boot启动流程分析](https://www.zybuluo.com/zhuanxu/note/965895)

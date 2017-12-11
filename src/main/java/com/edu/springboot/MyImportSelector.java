@@ -3,7 +3,10 @@ package com.edu.springboot;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 
-// 在@Import中引入
+/**
+ * 在@Import中引入
+ * @author zhuanxu
+ */
 public class MyImportSelector implements ImportSelector{
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {

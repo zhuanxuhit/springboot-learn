@@ -2,15 +2,16 @@ package com.edu.springboot;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
+import org.springframework.context.annotation.*;
 
 
 // 引入多个配置文件
 @PropertySources({@PropertySource("classpath:/config/author.properties"),@PropertySource("classpath:/config/tomcat.properties")})
 @SpringBootApplication
+@ComponentScan(
+        excludeFilters = @ComponentScan.Filter(
+                type = FilterType.REGEX,
+                pattern = "com.edu.springboot.web.*"))
 public class SpringConfig {
     @Bean
     public Runnable createBean1() {
